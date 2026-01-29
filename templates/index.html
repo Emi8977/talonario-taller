@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Talonario 5x5cm</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📋 Generador de Talonario 5x5cm</h1>
+            <p>Crea talonarios imprimibles con checkboxes para marcar a mano</p>
+        </header>
+
+        <main>
+            <section class="panel-info">
+                <h2>ℹ️ Información</h2>
+                <p>✓ Formato: 5cm x 5cm (perfecto para imprimir y recortar)</p>
+                <p>✓ Incluye campos: Servicio, Fecha, KM y checkboxes</p>
+                <p>✓ Puedes agregar servicios adicionales a los predeterminados</p>
+            </section>
+
+            <section class="panel-items">
+                <h2>📝 Items Predeterminados</h2>
+                <div id="lista-predeterminados" class="lista-items-view">
+                    <p class="cargando">Cargando items predeterminados...</p>
+                </div>
+            </section>
+
+            <section class="panel-adicionales">
+                <h2>➕ Agregar Items Adicionales</h2>
+                
+                <div class="agregar-item-form">
+                    <div class="form-group">
+                        <label for="item-tipo">Tipo:</label>
+                        <select id="item-tipo">
+                            <option value="checkbox">☐ Checkbox</option>
+                            <option value="texto">📝 Texto</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="item-valor">Valor:</label>
+                        <input type="text" id="item-valor" placeholder="ej: Revisión general">
+                    </div>
+
+                    <button id="btn-agregar-item" class="btn btn-primary">
+                        ➕ Agregar
+                    </button>
+                </div>
+
+                <div id="lista-adicionales" class="lista-items">
+                    <p class="cargando">No hay items adicionales</p>
+                </div>
+
+                <button id="btn-limpiar-adicionales" class="btn btn-danger">
+                    🗑️ Limpiar Adicionales
+                </button>
+            </section>
+
+            <section class="panel-generacion">
+                <h2>🎯 Generar PDF</h2>
+                
+                <button id="btn-generar-pdf" class="btn btn-success btn-large">
+                    🎯 Generar Talonario 5x5cm
+                </button>
+
+                <div id="estado-generacion" class="estado-generacion"></div>
+            </section>
+
+            <section class="panel-descargas">
+                <h2>📥 Archivos Generados</h2>
+                <div id="lista-descargas" class="lista-descargas">
+                    <p class="cargando">Cargando archivos...</p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>© 2024 Generador de Talonarios | v2.0</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
